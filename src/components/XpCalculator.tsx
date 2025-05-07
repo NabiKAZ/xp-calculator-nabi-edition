@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import XpButton from './XpButton';
 import XpDisplay from './XpDisplay';
-import { Plus, Minus, Divide, Multiply, Equal, CircleX } from 'lucide-react';
+import { Plus, Minus, Divide, X, Equal, CircleX } from 'lucide-react';
 
 const XpCalculator: React.FC = () => {
   const [display, setDisplay] = useState('0');
@@ -53,7 +53,7 @@ const XpCalculator: React.FC = () => {
     setOperator(nextOperator);
   };
 
-  const performCalculation = (op: string, firstOperand: number, secondOperand: number) => {
+  const performCalculation = (op: string, firstOperand: number, secondOperand: number): number | string => {
     switch (op) {
       case '+':
         return firstOperand + secondOperand;
@@ -117,7 +117,7 @@ const XpCalculator: React.FC = () => {
             9
           </XpButton>
           <XpButton value="*" onClick={() => handleOperator('*')}>
-            <Multiply size={16} />
+            <X size={16} />
           </XpButton>
           
           <XpButton value="4" onClick={() => inputDigit('4')}>
