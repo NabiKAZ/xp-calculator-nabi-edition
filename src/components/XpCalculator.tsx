@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import XpButton from './XpButton';
 import XpDisplay from './XpDisplay';
@@ -45,8 +44,18 @@ const XpCalculator: React.FC = () => {
       setFirstOperand(inputValue);
     } else if (operator) {
       const result = performCalculation(operator, firstOperand, inputValue);
-      setDisplay(String(result));
-      setFirstOperand(result);
+      
+      // Check if the result is a number or string
+      if (typeof result === 'number') {
+        setDisplay(String(result));
+        setFirstOperand(result);
+      } else {
+        setDisplay(result); // Display error string
+        setFirstOperand(null);
+        setOperator(null);
+        setWaitingForSecondOperand(true);
+        return;
+      }
     }
 
     setWaitingForSecondOperand(true);
@@ -76,8 +85,15 @@ const XpCalculator: React.FC = () => {
     const inputValue = parseFloat(display);
     const result = performCalculation(operator, firstOperand, inputValue);
     
+    // Check if result is a number or error string
     setDisplay(String(result));
-    setFirstOperand(null);
+    
+    if (typeof result === 'number') {
+      setFirstOperand(null);
+    } else {
+      setFirstOperand(null);
+    }
+    
     setOperator(null);
     setWaitingForSecondOperand(false);
   };
