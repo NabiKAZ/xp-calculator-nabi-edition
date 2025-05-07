@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Windows XP specific colors
+				winxp: {
+					blue: '#1084d0',
+					titlebar: '#0055ea',
+					titlebarActive: '#2a6ff5',
+					buttonface: '#ece9d8',
+					buttonhighlight: '#ffffff',
+					buttonshadow: '#a0a0a0',
+					desktop: '#235cdc',
+					window: '#ffffff',
+					windowframe: '#0055ea',
 				}
 			},
 			borderRadius: {
@@ -84,11 +97,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'winxp-click': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(0.97)' },
+					'100%': { transform: 'scale(1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'winxp-click': 'winxp-click 0.2s ease-out'
+			},
+			boxShadow: {
+				'winxp': 'inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf',
+				'winxp-inset': 'inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080'
 			}
 		}
 	},

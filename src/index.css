@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +91,40 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: "Tahoma";
+  src: url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/tahoma.min.css');
+}
+
+@layer components {
+  .xp-window {
+    @apply rounded-t-lg overflow-hidden border border-winxp-windowframe shadow-lg;
+  }
+  
+  .xp-titlebar {
+    @apply bg-gradient-to-r from-winxp-titlebar to-winxp-titlebarActive text-white px-2 py-1 flex items-center justify-between;
+  }
+  
+  .xp-titlebar-text {
+    @apply font-bold text-shadow font-['Tahoma'];
+  }
+  
+  .xp-window-body {
+    @apply bg-winxp-buttonface p-3 flex flex-col gap-2;
+  }
+  
+  .xp-button {
+    @apply bg-winxp-buttonface border border-winxp-buttonshadow hover:bg-gray-100 active:bg-gray-200 px-2 py-1 shadow-winxp active:shadow-winxp-inset transition-all;
+  }
+  
+  .xp-display {
+    @apply bg-white text-right px-2 py-1 font-mono shadow-winxp-inset;
+  }
+  
+  .text-shadow {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   }
 }
